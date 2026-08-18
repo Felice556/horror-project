@@ -68,7 +68,11 @@ export default function Header() {
                 to={item.href}
                 label={item.label}
                 className="text-xs font-medium uppercase"
-                style={{ color: "#c7b23a", letterSpacing: "0.2em" }}
+                style={{
+                  color: "#e7e2d3",
+                  letterSpacing: "0.2em",
+                  textShadow: "0 0 8px rgba(231, 226, 211, 0.6)",
+                }}
               />
             ) : (
               <a
@@ -107,7 +111,11 @@ export default function Header() {
                 label={item.label}
                 onInteract={() => setMenuOpen(false)}
                 className="text-xs font-medium uppercase"
-                style={{ color: "#c7b23a", letterSpacing: "0.2em" }}
+                style={{
+                  color: "#e7e2d3",
+                  letterSpacing: "0.2em",
+                  textShadow: "0 0 8px rgba(231, 226, 211, 0.6)",
+                }}
               />
             ) : (
               <a

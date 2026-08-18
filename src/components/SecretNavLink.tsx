@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 
 interface SecretNavLinkProps {
@@ -10,6 +11,7 @@ interface SecretNavLinkProps {
 }
 
 const CLICKS_TO_UNLOCK = 3;
+const MARGIN = 60;
 
 export default function SecretNavLink({
   to,
@@ -31,24 +33,27 @@ export default function SecretNavLink({
     e.preventDefault();
     setClicks((c) => c + 1);
 
-    const margin = 60;
-    const top = margin + Math.random() * (window.innerHeight - margin * 2);
-    const left = margin + Math.random() * (window.innerWidth - margin * 2);
+    const pageHeight = document.documentElement.scrollHeight;
+    const pageWidth = document.documentElement.scrollWidth;
+    const top = MARGIN + Math.random() * (pageHeight - MARGIN * 2);
+    const left = MARGIN + Math.random() * (pageWidth - MARGIN * 2);
     setPosition({ top, left });
   }
 
-  return (
+  const link = (
     <Link
       to={to}
       onClick={handleClick}
       className={className}
       style={
         position
-          ? { ...style, position: "fixed", top: position.top, left: position.left, zIndex: 60 }
+          ? { ...style, position: "absolute", top: position.top, left: position.left, zIndex: 60 }
           : style
       }
     >
       {label}
     </Link>
   );
+
+  return position ? createPortal(link, document.body) : link;
 }
