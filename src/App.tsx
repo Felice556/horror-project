@@ -14,7 +14,9 @@ export default function App() {
         mobileBackgroundImage="/images/hero-bg-mobile.jpg"
         fadeBottom
       >
-        <SectionTitle variant="film">Il Cinema Maledetto</SectionTitle>
+        <div className="pt-24">
+          <SectionTitle variant="film">Il Cinema Maledetto</SectionTitle>
+        </div>
       </Section>
       <Archivio />
     </>

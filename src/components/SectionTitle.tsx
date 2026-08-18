@@ -13,7 +13,7 @@ export default function SectionTitle({
 
   return (
     <h2
-      className={`text-4xl font-bold uppercase ${
+      className={`text-2xl sm:text-4xl font-bold uppercase ${
         variant === "film" ? "site-title" : ""
       }`}
       style={titleStyle}
