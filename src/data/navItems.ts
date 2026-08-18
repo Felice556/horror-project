@@ -11,7 +11,7 @@ export const navItems: NavItem[] = [
   {label: 'ENIGMI', href: '#enigmi'},
   {
     label: '???',
-    href: '#???',
+    href: "/stanza237",
     isSecret: true  
   }
 ];

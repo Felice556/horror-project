@@ -1,24 +1,12 @@
-import Header from "./components/Header";
-import "./App.css";
-import Section from "./components/Section";
-import SectionTitle from "./components/SectionTitle";
-import Archivio from "./components/archivio";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import SecretRoom from "./pages/SecretRoom";
 
 export default function App() {
   return (
-    <>
-      <Header />
-      <Section
-        id="home"
-        backgroundImage="/images/hero-bg.png"
-        mobileBackgroundImage="/images/hero-bg-mobile.jpg"
-        fadeBottom
-      >
-        <div className="pt-24">
-          <SectionTitle variant="film">Il Cinema Maledetto</SectionTitle>
-        </div>
-      </Section>
-      <Archivio />
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/stanza237" element={<SecretRoom />} />
+    </Routes>
   );
 }
