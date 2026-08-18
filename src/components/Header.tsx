@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { navItems } from "../data/navItems";
-import { Link } from "react-router-dom";
+import SecretNavLink from "./SecretNavLink";
 import "./Header.css";
 
 export default function Header() {
@@ -63,14 +63,13 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) =>
             item.isSecret ? (
-              <Link
+              <SecretNavLink
                 key={item.href}
                 to={item.href}
+                label={item.label}
                 className="text-xs font-medium uppercase"
                 style={{ color: "#c7b23a", letterSpacing: "0.2em" }}
-              >
-                {item.label}
-              </Link>
+              />
             ) : (
               <a
                 key={item.href}
@@ -102,15 +101,14 @@ export default function Header() {
         <nav className="flex flex-col items-end gap-4 px-6 pb-6">
           {navItems.map((item) =>
             item.isSecret ? (
-              <Link
+              <SecretNavLink
                 key={item.href}
                 to={item.href}
-                onClick={() => setMenuOpen(false)}
+                label={item.label}
+                onInteract={() => setMenuOpen(false)}
                 className="text-xs font-medium uppercase"
                 style={{ color: "#c7b23a", letterSpacing: "0.2em" }}
-              >
-                {item.label}
-              </Link>
+              />
             ) : (
               <a
                 key={item.href}
