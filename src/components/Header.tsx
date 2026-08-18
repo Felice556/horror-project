@@ -33,7 +33,7 @@ export default function Header() {
 />
     <div className="flex items-center justify-between pl-10 pr-6 py-5">
         
-     <div className="flex flex-col gap-1">
+     <div className={`flex-col gap-1 ${scrolled ? "hidden sm:flex" : "flex"}`}>
   <span
     className="rec-dot flex items-center gap-2 text-xs font-semibold"
     style={{ color: "#6e0e1a", letterSpacing: "0.3em" }}
