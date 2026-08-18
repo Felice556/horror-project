@@ -2,15 +2,30 @@ import type { SectionProps } from "../types/section";
 
 export default function Section({
   backgroundImage,
+  mobileBackgroundImage,
   children,
   fadeTop = false,
   fadeBottom = false,
 }: SectionProps) {
   return (
-    <section
-      className="relative bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url('${backgroundImage}')` }}
-    >
+    <section className="relative">
+      {mobileBackgroundImage ? (
+        <>
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat sm:hidden"
+            style={{ backgroundImage: `url('${mobileBackgroundImage}')` }}
+          />
+          <div
+            className="absolute inset-0 hidden bg-cover bg-center bg-no-repeat sm:block"
+            style={{ backgroundImage: `url('${backgroundImage}')` }}
+          />
+        </>
+      ) : (
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url('${backgroundImage}')` }}
+        />
+      )}
       <div
         className="absolute inset-0"
         style={{

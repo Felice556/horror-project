@@ -8,7 +8,11 @@ export default function App() {
   return (
     <>
       <Header />
-      <Section backgroundImage="/images/hero-bg.png" fadeBottom>
+      <Section
+        backgroundImage="/images/hero-bg.png"
+        mobileBackgroundImage="/images/hero-bg-mobile.jpg"
+        fadeBottom
+      >
         <SectionTitle variant="film">Il Cinema Maledetto</SectionTitle>
       </Section>
        <Archivio />
