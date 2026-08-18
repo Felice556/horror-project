@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@keyframes flicker {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    opacity: 1;
+  }
+  20%,
+  22%,
+  24%,
+  55% {
+    opacity: 0.45;
+  }
+}
+
+.site-title {
+  animation: flicker 6s linear infinite;
+}
+
+.site-title-glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.site-title-glitch::before,
+.site-title-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.site-title-glitch:hover::before {
+  opacity: 0.7;
+  color: #6e0e1a;
+  animation: glitchShift 0.3s steps(2, end) infinite;
+}
+
+.site-title-glitch:hover::after {
+  opacity: 0.5;
+  color: #3a6e6e;
+  animation: glitchShift 0.35s steps(2, end) infinite reverse;
+}
+
+@keyframes glitchShift {
+  0% {
+    transform: translate(2px, 0);
+  }
+  100% {
+    transform: translate(-2px, 1px);
+  }
+}
