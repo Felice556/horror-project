@@ -1,14 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { navItems } from "../data/navItems";
 import "./Header.css";
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    function handleScroll() {
+      setScrolled(window.scrollY > 0);
+    }
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header 
-    className="relative border-b overflow-hidden"
-  style={{ backgroundColor: "#0a0e0d", borderColor: "#2b2f2c" }}
->
+    <header
+      className="fixed inset-x-0 top-0 z-50 border-b overflow-hidden transition-colors duration-300"
+      style={{
+        backgroundColor: scrolled ? "transparent" : "#0a0e0d",
+        borderColor: scrolled ? "transparent" : "#2b2f2c",
+      }}
+    >
     <div
   className="pointer-events-none absolute inset-0"
   style={{
@@ -45,8 +59,8 @@ export default function Header() {
 </div>
 <nav className="hidden md:flex items-center gap-8">
   {navItems.map((item) => (
-    
-      <a key={item.href}
+    <a
+      key={item.href}
       href={item.href}
       className="text-xs font-medium uppercase"
       style={{
@@ -74,9 +88,10 @@ export default function Header() {
 >
   <nav className="flex flex-col items-end gap-4 px-6 pb-6">
     {navItems.map((item) => (
-      
-       <a key={item.href}
+      <a
+        key={item.href}
         href={item.href}
+        onClick={() => setMenuOpen(false)}
         className="text-xs font-medium uppercase"
         style={{
           color: item.isSecret ? "#c7b23a" : "#e7e2d3",

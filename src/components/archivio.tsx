@@ -35,7 +35,7 @@ export default function Archivio() {
     }
   }
   return (
-    <Section backgroundImage="/images/archivio-bg.jpg" fadeTop>
+    <Section id="archivio" backgroundImage="/images/archivio-bg.jpg" fadeTop>
       <div style={{ paddingTop: "5px" }}>
         <SectionTitle variant="film" >Archivio</SectionTitle>
 

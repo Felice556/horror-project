@@ -9,13 +9,14 @@ export default function App() {
     <>
       <Header />
       <Section
+        id="home"
         backgroundImage="/images/hero-bg.png"
         mobileBackgroundImage="/images/hero-bg-mobile.jpg"
         fadeBottom
       >
         <SectionTitle variant="film">Il Cinema Maledetto</SectionTitle>
       </Section>
-       <Archivio />
+      <Archivio />
     </>
   );
 }

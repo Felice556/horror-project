@@ -1,6 +1,7 @@
 import type { SectionProps } from "../types/section";
 
 export default function Section({
+  id,
   backgroundImage,
   mobileBackgroundImage,
   children,
@@ -8,7 +9,7 @@ export default function Section({
   fadeBottom = false,
 }: SectionProps) {
   return (
-    <section className="relative">
+    <section id={id} className="relative">
       {mobileBackgroundImage ? (
         <>
           <div
