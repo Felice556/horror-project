@@ -7,8 +7,15 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Section backgroundImage="/images/hero-bg.png" fadeBottom>
-        <SectionTitle variant="film">Il Cinema Maledetto</SectionTitle>
+      <Section
+        id="home"
+        backgroundImage="/images/hero-bg.png"
+        mobileBackgroundImage="/images/hero-bg-mobile.jpg"
+        fadeBottom
+      >
+        <div className="pt-24">
+          <SectionTitle variant="film">Il Cinema Maledetto</SectionTitle>
+        </div>
       </Section>
       <Archivio />
     </>
