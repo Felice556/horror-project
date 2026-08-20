@@ -68,7 +68,20 @@ export default function SecretRoom() {
         type="button"
         aria-label="Allarme antincendio sulla parete"
         onClick={handleAlarmClick}
-        className="absolute hidden sm:block"
+        className="absolute hidden sm:portrait:block"
+        style={{
+          top: "13%",
+          left: "7%",
+          width: "8%",
+          height: "9%",
+          opacity: 0,
+        }}
+      />
+      <button
+        type="button"
+        aria-label="Allarme antincendio sulla parete"
+        onClick={handleAlarmClick}
+        className="absolute hidden sm:landscape:block"
         style={{
           top: "8%",
           left: "29%",
