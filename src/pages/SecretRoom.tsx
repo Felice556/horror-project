@@ -37,7 +37,14 @@ export default function SecretRoom() {
       style={{ backgroundColor: "#0a0e0d", color: "#e7e2d3" }}
     >
       <div
-        className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"
+        className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 sm:hidden"
+        style={{
+          backgroundImage: "url(/images/stanza237_mobile.png)",
+          opacity: revealed ? 1 : 0,
+        }}
+      />
+      <div
+        className="absolute inset-0 hidden bg-cover bg-center transition-opacity duration-1000 sm:block"
         style={{
           backgroundImage: "url(/images/stanza237-bg.png)",
           opacity: revealed ? 1 : 0,
@@ -48,7 +55,20 @@ export default function SecretRoom() {
         type="button"
         aria-label="Allarme antincendio sulla parete"
         onClick={handleAlarmClick}
-        className="absolute"
+        className="absolute sm:hidden"
+        style={{
+          top: "16%",
+          left: "10%",
+          width: "8%",
+          height: "7%",
+          opacity: 0,
+        }}
+      />
+      <button
+        type="button"
+        aria-label="Allarme antincendio sulla parete"
+        onClick={handleAlarmClick}
+        className="absolute hidden sm:block"
         style={{
           top: "8%",
           left: "29%",
@@ -69,15 +89,26 @@ export default function SecretRoom() {
       <audio ref={screamRef} src="/sounds/scream.wav" />
 
       {scared && (
-        <div
-          className="jumpscare-shake bg-cover bg-center"
-          style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: 999,
-            backgroundImage: "url('/images/woman_jumpscare.jpg')",
-          }}
-        />
+        <>
+          <div
+            className="jumpscare-shake bg-cover bg-center sm:hidden"
+            style={{
+              position: "fixed",
+              inset: 0,
+              zIndex: 999,
+              backgroundImage: "url('/images/jumpscare_mobile.png')",
+            }}
+          />
+          <div
+            className="jumpscare-shake hidden bg-cover bg-center sm:block"
+            style={{
+              position: "fixed",
+              inset: 0,
+              zIndex: 999,
+              backgroundImage: "url('/images/woman_jumpscare.jpg')",
+            }}
+          />
+        </>
       )}
     </div>
   );
