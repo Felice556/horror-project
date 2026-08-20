@@ -153,7 +153,16 @@ export default function EnigmiPage() {
 
             <div className="mt-8 border-t pt-8" style={{ borderColor: "#2b2f2c" }}>
               {bonusCorrect ? (
-                <p className="font-serif text-base italic" style={{ color: "#c7b23a" }}>
+                <p
+                  style={{
+                    fontFamily: "'EB Garamond', Georgia, serif",
+                    fontStyle: "italic",
+                    fontSize: "clamp(1.05rem, 2.6vw, 1.4rem)",
+                    lineHeight: 1.7,
+                    color: "#e7e2d3",
+                    textShadow: "0 0 24px rgba(231, 226, 211, 0.25)",
+                  }}
+                >
                   {decodeBase64Utf8(MESSAGGIO_CODIFICATO)}
                 </p>
               ) : (
