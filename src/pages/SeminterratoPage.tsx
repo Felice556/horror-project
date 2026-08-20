@@ -1,9 +1,16 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const CAMERA_TOP = "63%";
-const CAMERA_LEFT = "74%";
+const CAMERA_MOBILE_TOP = "54%";
+const CAMERA_MOBILE_LEFT = "74%";
+const CAMERA_TABLET_TOP = "57%";
+const CAMERA_TABLET_LEFT = "64%";
+const CAMERA_DESKTOP_TOP = "59%";
+const CAMERA_DESKTOP_LEFT = "72%";
+
 const TORCH_RADIUS = 190;
+const TORCH_RADIUS_MOBILE = 110;
+const NIGHT_VISION_FILTER = "sepia(1) hue-rotate(70deg) saturate(4) brightness(1.4)";
 
 export default function SeminterratoPage() {
   const [revealed, setRevealed] = useState(false);
@@ -25,6 +32,7 @@ export default function SeminterratoPage() {
 
   const torchX = pointer?.x ?? window.innerWidth / 2;
   const torchY = pointer?.y ?? window.innerHeight / 2;
+  const torchRadius = window.innerWidth < 640 ? TORCH_RADIUS_MOBILE : TORCH_RADIUS;
 
   return (
     <div
@@ -36,12 +44,31 @@ export default function SeminterratoPage() {
       }}
     >
       <div
-        className="absolute inset-0 bg-cover bg-center transition-[filter] duration-1000"
+        className="absolute inset-0 bg-cover bg-center transition-[filter] duration-1000 sm:hidden"
         style={{
-          backgroundImage: revealed ? "url('/images/seminterrato.png')" : undefined,
-          filter: found
-            ? "sepia(1) hue-rotate(70deg) saturate(4) brightness(1.4)"
-            : undefined,
+          backgroundImage: revealed ? "url('/images/seminterrato_mobile.jfif')" : undefined,
+          filter: found ? NIGHT_VISION_FILTER : undefined,
+        }}
+      />
+      <div
+        className="absolute inset-0 hidden bg-cover bg-center transition-[filter] duration-1000 sm:portrait:block"
+        style={{
+          backgroundImage: revealed ? "url('/images/seminterrato_mobile.jfif')" : undefined,
+          filter: found ? NIGHT_VISION_FILTER : undefined,
+        }}
+      />
+      <div
+        className="absolute inset-0 hidden bg-cover bg-center transition-[filter] duration-1000 sm:landscape:block lg:landscape:hidden"
+        style={{
+          backgroundImage: revealed ? "url('/images/seminterrato_tablet.jfif')" : undefined,
+          filter: found ? NIGHT_VISION_FILTER : undefined,
+        }}
+      />
+      <div
+        className="absolute inset-0 hidden bg-cover bg-center transition-[filter] duration-1000 lg:landscape:block"
+        style={{
+          backgroundImage: revealed ? "url('/images/seminterrato.jfif')" : undefined,
+          filter: found ? NIGHT_VISION_FILTER : undefined,
         }}
       />
 
@@ -59,19 +86,30 @@ export default function SeminterratoPage() {
             type="button"
             aria-label="Un oggetto nascosto nella stanza"
             onClick={handleCameraFound}
-            className="absolute"
-            style={{
-              top: CAMERA_TOP,
-              left: CAMERA_LEFT,
-              width: 40,
-              height: 40,
-            }}
-          >
-            <svg viewBox="0 0 24 24" fill="none" width="100%" height="100%">
-              <rect x="2" y="6" width="14" height="11" rx="2" stroke="#2b2f2c" strokeWidth="1.5" />
-              <path d="M16 9.5l5-3v11l-5-3z" stroke="#2b2f2c" strokeWidth="1.5" strokeLinejoin="round" />
-            </svg>
-          </button>
+            className="absolute sm:hidden"
+            style={{ top: CAMERA_MOBILE_TOP, left: CAMERA_MOBILE_LEFT, width: 40, height: 40 }}
+          />
+          <button
+            type="button"
+            aria-label="Un oggetto nascosto nella stanza"
+            onClick={handleCameraFound}
+            className="absolute hidden sm:portrait:block"
+            style={{ top: CAMERA_MOBILE_TOP, left: CAMERA_MOBILE_LEFT, width: 40, height: 40 }}
+          />
+          <button
+            type="button"
+            aria-label="Un oggetto nascosto nella stanza"
+            onClick={handleCameraFound}
+            className="absolute hidden sm:landscape:block lg:landscape:hidden"
+            style={{ top: CAMERA_TABLET_TOP, left: CAMERA_TABLET_LEFT, width: 40, height: 40 }}
+          />
+          <button
+            type="button"
+            aria-label="Un oggetto nascosto nella stanza"
+            onClick={handleCameraFound}
+            className="absolute hidden lg:landscape:block"
+            style={{ top: CAMERA_DESKTOP_TOP, left: CAMERA_DESKTOP_LEFT, width: 40, height: 40 }}
+          />
 
           <div
             className="fixed inset-0 transition-opacity duration-1000"
@@ -79,7 +117,7 @@ export default function SeminterratoPage() {
               opacity: found ? 0 : 1,
               pointerEvents: "none",
               zIndex: 50,
-              background: `radial-gradient(circle ${TORCH_RADIUS}px at ${torchX}px ${torchY}px, transparent 0%, rgba(10,14,13,0.95) 55%, #0a0e0d 100%)`,
+              background: `radial-gradient(circle ${torchRadius}px at ${torchX}px ${torchY}px, transparent 0%, rgba(10,14,13,0.95) 55%, #0a0e0d 100%)`,
             }}
           />
 
@@ -97,7 +135,7 @@ export default function SeminterratoPage() {
               <div
                 className="pointer-events-none absolute inset-0"
                 style={{
-                  opacity: 0.15,
+                  opacity: 0.06,
                   backgroundImage:
                     "repeating-linear-gradient(0deg, #e7e2d3 0px, #e7e2d3 1px, transparent 1px, transparent 3px)",
                 }}
