@@ -6,7 +6,7 @@ export const archiveItems: archiveItem[] = [
   {
     title: "Il palloncino rosso",
     reference: "IT (1990/2017)",
-    description: "Nei fogni scorre qualcosa di antico. Non seguire il rosso.",
+    description: "Nelle fogne scorre qualcosa di antico. Non seguire il rosso.",
   },
   {
     title: "Stanza 237",
