@@ -50,7 +50,7 @@ export default function SecretRoom() {
         onClick={handleAlarmClick}
         className="absolute"
         style={{
-          top: "20%",
+          top: "8%",
           left: "29%",
           width: "6%",
           height: "12%",
