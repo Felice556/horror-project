@@ -29,16 +29,22 @@ export default function SeminterratoPage() {
   return (
     <div
       onPointerMove={revealed ? handlePointerMove : undefined}
-      className="relative min-h-screen overflow-hidden bg-cover bg-center transition-[filter] duration-1000"
+      className="relative min-h-screen overflow-hidden"
       style={{
         backgroundColor: "#0a0e0d",
-        backgroundImage: revealed ? "url('/images/seminterrato.png')" : undefined,
         touchAction: revealed ? "none" : undefined,
-        filter: found
-          ? "sepia(1) hue-rotate(70deg) saturate(4) brightness(0.9)"
-          : undefined,
       }}
     >
+      <div
+        className="absolute inset-0 bg-cover bg-center transition-[filter] duration-1000"
+        style={{
+          backgroundImage: revealed ? "url('/images/seminterrato.png')" : undefined,
+          filter: found
+            ? "sepia(1) hue-rotate(70deg) saturate(4) brightness(1.4)"
+            : undefined,
+        }}
+      />
+
       {!revealed && (
         <div className="flex min-h-screen items-center justify-center">
           <p className="text-xs uppercase" style={{ color: "#e7e2d3", letterSpacing: "0.1em" }}>
@@ -100,7 +106,7 @@ export default function SeminterratoPage() {
                 className="pointer-events-none absolute inset-0"
                 style={{
                   background:
-                    "radial-gradient(ellipse at center, transparent 40%, rgba(10,14,13,0.85) 100%)",
+                    "radial-gradient(ellipse at center, transparent 55%, rgba(10,14,13,0.5) 100%)",
                 }}
               />
               <span
