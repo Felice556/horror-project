@@ -64,7 +64,7 @@ export default function Archivio() {
               onChange={handleCodeChange}
               placeholder="SBLOCCA"
               maxLength={3}
-              className="w-24 border bg-transparent px-3 py-2 text-center text-sm sm:hidden"
+              className="w-24 border bg-transparent px-3 py-2 text-center text-sm xl:hidden"
               style={{ borderColor: "#2b2f2c", color: "#e7e2d3" }}
             />
           </div>
