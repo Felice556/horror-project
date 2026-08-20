@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import SecretRoom from "./pages/SecretRoom";
 import SeminterratoPage from "./pages/SeminterratoPage";
 import EnigmiPage from "./pages/EnigmiPage";
+import NotFound from "./pages/NotFound";
 
 function ScrollToHash() {
   const { hash } = useLocation();
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="/stanza237" element={<SecretRoom />} />
         <Route path="/seminterrato" element={<SeminterratoPage />} />
         <Route path="/enigmi" element={<EnigmiPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
