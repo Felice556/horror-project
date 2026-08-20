@@ -13,9 +13,9 @@ export default function Archivio() {
 
     function handleKeyDown(e: KeyboardEvent) {
       typed += e.key;
-      typed = typed.slice(-3);
+      typed = typed.slice(-4);
 
-      if (typed === "237") {
+      if (typed === "4458") {
         setIsUnlocked(true);
       }
     }
@@ -30,7 +30,7 @@ export default function Archivio() {
     const value = e.target.value;
     setCode(value);
 
-    if (value === "237") {
+    if (value === "4458") {
       setIsUnlocked(true);
     }
   }
@@ -67,7 +67,7 @@ export default function Archivio() {
               value={code}
               onChange={handleCodeChange}
               placeholder="SBLOCCA"
-              maxLength={3}
+              maxLength={4}
               className="w-24 border bg-transparent px-3 py-2 text-center text-sm xl:hidden"
               style={{ borderColor: "#2b2f2c", color: "#e7e2d3" }}
             />

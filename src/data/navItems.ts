@@ -8,7 +8,7 @@ export const navItems: NavItem[] = [
     label: 'ARCHIVIO',
     href: '#archivio'
   } ,
-  {label: 'ENIGMI', href: '#enigmi'},
+  {label: 'ENIGMI', href: '/enigmi'},
   {
     label: '???',
     href: "/stanza237",
