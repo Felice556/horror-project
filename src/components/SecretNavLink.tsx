@@ -8,6 +8,7 @@ interface SecretNavLinkProps {
   className?: string;
   style?: React.CSSProperties;
   onInteract?: () => void;
+  tabIndex?: number;
 }
 
 const CLICKS_TO_UNLOCK = 3;
@@ -19,6 +20,7 @@ export default function SecretNavLink({
   className,
   style,
   onInteract,
+  tabIndex,
 }: SecretNavLinkProps) {
   const [clicks, setClicks] = useState(0);
   const [position, setPosition] = useState<{ top: number; left: number } | null>(null);
@@ -45,6 +47,7 @@ export default function SecretNavLink({
       to={to}
       onClick={handleClick}
       className={className}
+      tabIndex={tabIndex}
       style={
         position
           ? { ...style, position: "absolute", top: position.top, left: position.left, zIndex: 60 }

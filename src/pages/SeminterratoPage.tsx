@@ -22,7 +22,7 @@ export default function SeminterratoPage() {
     return () => clearTimeout(timer);
   }, []);
 
-  function handlePointerMove(e: React.PointerEvent<HTMLDivElement>) {
+  function handlePointerMove(e: React.PointerEvent<HTMLElement>) {
     setPointer({ x: e.clientX, y: e.clientY });
   }
 
@@ -35,7 +35,7 @@ export default function SeminterratoPage() {
   const torchRadius = window.innerWidth < 640 ? TORCH_RADIUS_MOBILE : TORCH_RADIUS;
 
   return (
-    <div
+    <main
       onPointerMove={revealed ? handlePointerMove : undefined}
       className="relative min-h-screen overflow-hidden"
       style={{
@@ -108,7 +108,13 @@ export default function SeminterratoPage() {
             aria-label="Un oggetto nascosto nella stanza"
             onClick={handleCameraFound}
             className="absolute hidden lg:landscape:block"
-            style={{ top: CAMERA_DESKTOP_TOP, left: CAMERA_DESKTOP_LEFT, width: 40, height: 40 }}
+            style={{
+              top: `calc(${CAMERA_DESKTOP_TOP} + 20px)`,
+              left: `calc(${CAMERA_DESKTOP_LEFT} + 20px)`,
+              transform: "translate(-50%, -50%)",
+              width: 110,
+              height: 110,
+            }}
           />
 
           <div
@@ -175,6 +181,6 @@ export default function SeminterratoPage() {
           )}
         </>
       )}
-    </div>
+    </main>
   );
 }

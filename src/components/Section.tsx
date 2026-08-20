@@ -13,21 +13,25 @@ export default function Section({
       {mobileBackgroundImage ? (
         <>
           <div
+            aria-hidden="true"
             className="absolute inset-0 bg-cover bg-center bg-no-repeat sm:hidden"
             style={{ backgroundImage: `url('${mobileBackgroundImage}')` }}
           />
           <div
+            aria-hidden="true"
             className="absolute inset-0 hidden bg-cover bg-center bg-no-repeat sm:block"
             style={{ backgroundImage: `url('${backgroundImage}')` }}
           />
         </>
       ) : (
         <div
+          aria-hidden="true"
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url('${backgroundImage}')` }}
         />
       )}
       <div
+        aria-hidden="true"
         className="absolute inset-0"
         style={{
           background:
@@ -37,6 +41,7 @@ export default function Section({
 
       {fadeTop && (
         <div
+          aria-hidden="true"
           className="absolute inset-x-0 top-0 h-32 sm:h-48"
           style={{
             background:
@@ -47,6 +52,7 @@ export default function Section({
 
       {fadeBottom && (
         <div
+          aria-hidden="true"
           className="absolute inset-x-0 bottom-0 h-32 sm:h-48"
           style={{
             background:

@@ -20,14 +20,14 @@ export default function Footer() {
 
           <p
             className="text-xs"
-            style={{ color: "#e7e2d3", opacity: 0.4, letterSpacing: "0.02em" }}
+            style={{ color: "#e7e2d3", opacity: 0.55, letterSpacing: "0.02em" }}
           >
             Le immagini di questo sito sono state generate con intelligenza artificiale a scopo creativo.
           </p>
 
           <p
             className="text-xs"
-            style={{ color: "#e7e2d3", opacity: 0.4, letterSpacing: "0.05em" }}
+            style={{ color: "#e7e2d3", opacity: 0.55, letterSpacing: "0.05em" }}
           >
             © 2026 Stanza 237
           </p>
@@ -42,6 +42,7 @@ export default function Footer() {
             style={{ color: "#e7e2d3", letterSpacing: "0.15em" }}
           >
             GitHub
+            <span className="sr-only"> (si apre in una nuova scheda)</span>
           </a>
 
           <a
@@ -55,7 +56,7 @@ export default function Footer() {
           <a
             href="#home"
             className="text-xs font-medium uppercase"
-            style={{ color: "#6e0e1a", letterSpacing: "0.15em" }}
+            style={{ color: "#e05656", letterSpacing: "0.15em" }}
           >
             Torna su
           </a>

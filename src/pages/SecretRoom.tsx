@@ -32,7 +32,7 @@ export default function SecretRoom() {
   }
 
   return (
-    <div
+    <main
       className="relative flex min-h-screen items-center justify-center overflow-hidden"
       style={{ backgroundColor: "#0a0e0d", color: "#e7e2d3" }}
     >
@@ -123,6 +123,6 @@ export default function SecretRoom() {
           />
         </>
       )}
-    </div>
+    </main>
   );
 }

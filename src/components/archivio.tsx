@@ -57,7 +57,11 @@ export default function Archivio() {
           >
             Alcuni ricordi sono stati murati vivi. Da qualche parte, una stanza ricorda ancora la via per farli riemergere...
           </p>
+              <label htmlFor="archive-code" className="sr-only">
+              Codice segreto per sbloccare l'archivio
+            </label>
               <input
+              id="archive-code"
               type="text"
               inputMode="numeric"
               value={code}

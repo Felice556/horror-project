@@ -26,6 +26,7 @@ export default function Header() {
       }}
     >
       <div
+        aria-hidden="true"
         className="pointer-events-none absolute inset-0"
         style={{
           opacity: 0.06,
@@ -41,6 +42,7 @@ export default function Header() {
             style={{ color: "#6e0e1a", letterSpacing: "0.3em" }}
           >
             <span
+              aria-hidden="true"
               className="inline-block h-1.5 w-1.5 rounded-full"
               style={{ backgroundColor: "#6e0e1a" }}
             />
@@ -60,7 +62,7 @@ export default function Header() {
           </h1>
         </div>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav aria-label="Menu principale" className="hidden md:flex items-center gap-8">
           {navItems.map((item) =>
             item.isSecret ? (
               <SecretNavLink
@@ -90,6 +92,8 @@ export default function Header() {
         <button
           className="flex md:hidden flex-col gap-1.5"
           aria-label={menuOpen ? "Chiudi menu" : "Apri menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-nav"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <span className="h-0.5 w-6" style={{ backgroundColor: "#e7e2d3" }} />
@@ -99,10 +103,12 @@ export default function Header() {
       </div>
 
       <div
+        id="mobile-nav"
+        aria-hidden={!menuOpen}
         className="overflow-hidden transition-all duration-300 md:hidden"
         style={{ maxHeight: menuOpen ? "220px" : "0px" }}
       >
-        <nav className="flex flex-col items-end gap-4 px-6 pb-6">
+        <nav aria-label="Menu mobile" className="flex flex-col items-end gap-4 px-6 pb-6">
           {navItems.map((item) =>
             item.isSecret ? (
               <SecretNavLink
@@ -110,6 +116,7 @@ export default function Header() {
                 to={item.href}
                 label={item.label}
                 onInteract={() => setMenuOpen(false)}
+                tabIndex={menuOpen ? 0 : -1}
                 className="text-xs font-medium uppercase"
                 style={{
                   color: "#e7e2d3",
@@ -122,6 +129,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
+                tabIndex={menuOpen ? 0 : -1}
                 className="text-xs font-medium uppercase"
                 style={{ color: "#e7e2d3", letterSpacing: "0.2em" }}
               >
