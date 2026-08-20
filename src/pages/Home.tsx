@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import Section from "../components/Section";
 import SectionTitle from "../components/SectionTitle";
 import Archivio from "../components/archivio";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         </div>
       </Section>
       <Archivio />
+      <Footer />
     </>
   );
 }
