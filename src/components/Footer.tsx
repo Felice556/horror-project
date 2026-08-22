@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer
       className="border-t"
@@ -15,21 +19,21 @@ export default function Footer() {
               letterSpacing: "0.15em",
             }}
           >
-            Creato da Felice Russo · React · TypeScript · Tailwind CSS
+            {t("footer.credit")}
           </p>
 
           <p
             className="text-xs"
             style={{ color: "#e7e2d3", opacity: 0.55, letterSpacing: "0.02em" }}
           >
-            Le immagini di questo sito sono state generate con intelligenza artificiale a scopo creativo.
+            {t("footer.aiDisclaimer")}
           </p>
 
           <p
             className="text-xs"
             style={{ color: "#e7e2d3", opacity: 0.55, letterSpacing: "0.05em" }}
           >
-            © 2026 Stanza 237
+            {t("footer.copyright")}
           </p>
         </div>
 
@@ -41,8 +45,8 @@ export default function Footer() {
             className="text-xs font-medium uppercase"
             style={{ color: "#e7e2d3", letterSpacing: "0.15em" }}
           >
-            GitHub
-            <span className="sr-only"> (si apre in una nuova scheda)</span>
+            {t("footer.github")}
+            <span className="sr-only"> {t("footer.githubNewTab")}</span>
           </a>
 
           <a
@@ -50,7 +54,7 @@ export default function Footer() {
             className="text-xs font-medium uppercase"
             style={{ color: "#e7e2d3", letterSpacing: "0.15em" }}
           >
-            Contatti
+            {t("footer.contact")}
           </a>
 
           <a
@@ -58,7 +62,7 @@ export default function Footer() {
             className="text-xs font-medium uppercase"
             style={{ color: "#e05656", letterSpacing: "0.15em" }}
           >
-            Torna su
+            {t("footer.backToTop")}
           </a>
         </div>
       </div>

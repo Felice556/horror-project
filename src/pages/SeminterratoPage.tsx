@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const CAMERA_MOBILE_TOP = "54%";
 const CAMERA_MOBILE_LEFT = "74%";
@@ -13,6 +14,7 @@ const TORCH_RADIUS_MOBILE = 110;
 const NIGHT_VISION_FILTER = "sepia(1) hue-rotate(70deg) saturate(4) brightness(1.4)";
 
 export default function SeminterratoPage() {
+  const { t } = useTranslation();
   const [revealed, setRevealed] = useState(false);
   const [found, setFound] = useState(false);
   const [pointer, setPointer] = useState<{ x: number; y: number } | null>(null);
@@ -75,7 +77,7 @@ export default function SeminterratoPage() {
       {!revealed && (
         <div className="flex min-h-screen items-center justify-center">
           <p className="text-xs uppercase" style={{ color: "#e7e2d3", letterSpacing: "0.1em" }}>
-            Fa freddo, qui sotto.
+            {t("seminterrato.cold")}
           </p>
         </div>
       )}
@@ -132,7 +134,7 @@ export default function SeminterratoPage() {
               className="pointer-events-none fixed inset-x-0 bottom-12 text-center text-xs uppercase"
               style={{ color: "#e7e2d3", letterSpacing: "0.1em", zIndex: 60 }}
             >
-              Muovi per illuminare
+              {t("seminterrato.moveToLight")}
             </p>
           )}
 
@@ -175,7 +177,7 @@ export default function SeminterratoPage() {
                   letterSpacing: "0.2em",
                 }}
               >
-                Torna alla luce
+                {t("seminterrato.backToLight")}
               </Link>
             </>
           )}

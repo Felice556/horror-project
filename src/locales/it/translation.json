@@ -1,0 +1,88 @@
+{
+  "common": {
+    "skipToContent": "Salta al contenuto"
+  },
+  "header": {
+    "nav": {
+      "home": "Home",
+      "archivio": "Archivio",
+      "enigmi": "Enigmi"
+    }
+  },
+  "home": {
+    "heroTitle": "Il Cinema Maledetto"
+  },
+  "archivio": {
+    "title": "Archivio",
+    "locked": "Alcuni ricordi sono stati murati vivi. Da qualche parte, una stanza ricorda ancora la via per farli riemergere...",
+    "codeLabel": "Codice segreto per sbloccare l'archivio",
+    "codePlaceholder": "SBLOCCA",
+    "items": {
+      "redBalloon": {
+        "title": "Il palloncino rosso",
+        "description": "Nelle fogne scorre qualcosa di antico. Non seguire il rosso."
+      },
+      "room237": {
+        "title": "Stanza 237",
+        "description": "Alcune porte è meglio non aprirle mai."
+      },
+      "mask": {
+        "title": "La maschera",
+        "description": "Il lago è calmo solo di giorno."
+      },
+      "watchMe": {
+        "title": "Watch me",
+        "description": "Hai sette giorni."
+      }
+    }
+  },
+  "quiz": {
+    "questionCounter": "Domanda {{current}} di {{total}}",
+    "unlockedTitle": "Hai sbloccato un codice per l'Archivio",
+    "backToArchive": "Torna all'Archivio",
+    "score": "Punteggio: {{score}}/{{total}}",
+    "retry": "Riprova",
+    "q1": {
+      "question": "In \"Shining\", qual è il numero della stanza maledetta dell'hotel?",
+      "options": { "a": "217", "b": "237", "c": "137", "d": "337" }
+    },
+    "q2": {
+      "question": "Chi interpreta Pennywise nel remake di \"IT\" del 2017?",
+      "options": { "a": "Tim Curry", "b": "Javier Bardem", "c": "Bill Skarsgård", "d": "Willem Dafoe" }
+    },
+    "q3": {
+      "question": "Nel primo film di \"Venerdì 13\", chi è davvero l'assassino?",
+      "options": { "a": "Jason Voorhees", "b": "Pamela Voorhees, sua madre", "c": "Michael Myers", "d": "Un campeggiatore sconosciuto" }
+    },
+    "q4": {
+      "question": "In \"The Ring\", cosa deve fare chi guarda la videocassetta maledetta per sopravvivere?",
+      "options": { "a": "Non guardare più la TV", "b": "Farla vedere a qualcun altro entro 7 giorni", "c": "Distruggere la videocassetta", "d": "Chiamare un prete" }
+    },
+    "q5": {
+      "question": "Come si chiama il killer mascherato di \"Halloween\"?",
+      "options": { "a": "Jason Voorhees", "b": "Freddy Krueger", "c": "Leatherface", "d": "Michael Myers" }
+    }
+  },
+  "secretRoom": {
+    "hint": "Non dovevi trovarla."
+  },
+  "seminterrato": {
+    "cold": "Fa freddo, qui sotto.",
+    "moveToLight": "Muovi per illuminare",
+    "backToLight": "Torna alla luce"
+  },
+  "notFound": {
+    "title": "Ti sei perso nel corridoio sbagliato.",
+    "subtitle": "Questa stanza non esiste. O forse non dovrebbe.",
+    "backHome": "Torna sulla via di casa"
+  },
+  "footer": {
+    "credit": "Creato da Felice Russo · React · TypeScript · Tailwind CSS",
+    "aiDisclaimer": "Le immagini di questo sito sono state generate con intelligenza artificiale a scopo creativo.",
+    "copyright": "© 2026 Stanza 237",
+    "github": "GitHub",
+    "githubNewTab": " (si apre in una nuova scheda)",
+    "contact": "Contatti",
+    "backToTop": "Torna su"
+  }
+}

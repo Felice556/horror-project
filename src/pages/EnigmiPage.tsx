@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { quizQuestions } from "../data/quizQuestions";
 
 const UNLOCK_CODE = "4458";
@@ -30,6 +31,7 @@ const MESSAGGIO_CODIFICATO =
   "VGkgYW1vLCBzZWkgbGEgcGVyc29uYSBwacO5IGltcG9ydGFudGUgZGVsbGEgbWlhIHZpdGE=";
 
 export default function EnigmiPage() {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
@@ -91,14 +93,14 @@ export default function EnigmiPage() {
               className="text-xs uppercase"
               style={{ color: "#c7b23a", letterSpacing: "0.2em", fontFamily: MONO }}
             >
-              Domanda {currentIndex + 1} di {quizQuestions.length}
+              {t("quiz.questionCounter", { current: currentIndex + 1, total: quizQuestions.length })}
             </p>
 
             <h1
               className="mt-4 text-xl sm:text-2xl"
               style={{ fontFamily: MONO, letterSpacing: "0.02em" }}
             >
-              {currentQuestion.question}
+              {t(currentQuestion.question)}
             </h1>
 
             <div className="mt-8 flex flex-col gap-3">
@@ -123,7 +125,7 @@ export default function EnigmiPage() {
                       borderColor: feedbackColor,
                     }}
                   >
-                    {option.label}
+                    {t(option.label)}
                   </button>
                 );
               })}
@@ -135,7 +137,7 @@ export default function EnigmiPage() {
               className="text-sm uppercase"
               style={{ letterSpacing: "0.15em", fontFamily: MONO }}
             >
-              Hai sbloccato un codice per l'Archivio
+              {t("quiz.unlockedTitle")}
             </p>
             <p
               className="mt-6 text-5xl font-bold"
@@ -148,7 +150,7 @@ export default function EnigmiPage() {
               className="mt-8 inline-block border px-6 py-3 text-xs uppercase transition-colors duration-300 border-[#2b2f2c] hover:border-[#6e0e1a]"
               style={{ color: "#e7e2d3", fontFamily: MONO, letterSpacing: "0.1em" }}
             >
-              Torna all'Archivio
+              {t("quiz.backToArchive")}
             </Link>
 
             <div className="mt-8 border-t pt-8" style={{ borderColor: "#2b2f2c" }}>
@@ -204,7 +206,7 @@ export default function EnigmiPage() {
         ) : (
           <div>
             <p className="text-xl" style={{ fontFamily: MONO }}>
-              Punteggio: {score}/{quizQuestions.length}
+              {t("quiz.score", { score, total: quizQuestions.length })}
             </p>
             <button
               type="button"
@@ -212,7 +214,7 @@ export default function EnigmiPage() {
               className="mt-6 border px-6 py-3 text-xs uppercase transition-colors duration-300 border-[#2b2f2c] hover:border-[#6e0e1a]"
               style={{ color: "#e7e2d3", fontFamily: MONO, letterSpacing: "0.1em" }}
             >
-              Riprova
+              {t("quiz.retry")}
             </button>
           </div>
         )}

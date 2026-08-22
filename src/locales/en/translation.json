@@ -1,0 +1,88 @@
+{
+  "common": {
+    "skipToContent": "Skip to content"
+  },
+  "header": {
+    "nav": {
+      "home": "Home",
+      "archivio": "Archive",
+      "enigmi": "Riddles"
+    }
+  },
+  "home": {
+    "heroTitle": "The Cursed Cinema"
+  },
+  "archivio": {
+    "title": "Archive",
+    "locked": "Some memories have been bricked up alive. Somewhere, a room still remembers the way to bring them back.",
+    "codeLabel": "Secret code to unlock the archive",
+    "codePlaceholder": "UNLOCK",
+    "items": {
+      "redBalloon": {
+        "title": "The Red Balloon",
+        "description": "Something ancient flows through the sewers. Don't follow the red."
+      },
+      "room237": {
+        "title": "Room 237",
+        "description": "Some doors are better left unopened."
+      },
+      "mask": {
+        "title": "The Mask",
+        "description": "The lake is calm only by day."
+      },
+      "watchMe": {
+        "title": "Watch Me",
+        "description": "You have seven days."
+      }
+    }
+  },
+  "quiz": {
+    "questionCounter": "Question {{current}} of {{total}}",
+    "unlockedTitle": "You've unlocked a code for the Archive",
+    "backToArchive": "Back to the Archive",
+    "score": "Score: {{score}}/{{total}}",
+    "retry": "Try Again",
+    "q1": {
+      "question": "In \"The Shining\", what is the number of the hotel's cursed room?",
+      "options": { "a": "217", "b": "237", "c": "137", "d": "337" }
+    },
+    "q2": {
+      "question": "Who plays Pennywise in the 2017 remake of \"IT\"?",
+      "options": { "a": "Tim Curry", "b": "Javier Bardem", "c": "Bill Skarsgård", "d": "Willem Dafoe" }
+    },
+    "q3": {
+      "question": "In the first \"Friday the 13th\" film, who is the real killer?",
+      "options": { "a": "Jason Voorhees", "b": "Pamela Voorhees, his mother", "c": "Michael Myers", "d": "An unknown camper" }
+    },
+    "q4": {
+      "question": "In \"The Ring\", what must someone who watches the cursed videotape do to survive?",
+      "options": { "a": "Never watch TV again", "b": "Show it to someone else within 7 days", "c": "Destroy the videotape", "d": "Call a priest" }
+    },
+    "q5": {
+      "question": "What is the masked killer of \"Halloween\" called?",
+      "options": { "a": "Jason Voorhees", "b": "Freddy Krueger", "c": "Leatherface", "d": "Michael Myers" }
+    }
+  },
+  "secretRoom": {
+    "hint": "You weren't supposed to find it."
+  },
+  "seminterrato": {
+    "cold": "It's cold, down here.",
+    "moveToLight": "Move to light up",
+    "backToLight": "Back to the light"
+  },
+  "notFound": {
+    "title": "You got lost in the wrong corridor.",
+    "subtitle": "This room doesn't exist. Or maybe it shouldn't.",
+    "backHome": "Find your way back home"
+  },
+  "footer": {
+    "credit": "Made by Felice Russo · React · TypeScript · Tailwind CSS",
+    "aiDisclaimer": "The images on this site were generated with artificial intelligence for creative purposes.",
+    "copyright": "© 2026 Stanza 237",
+    "github": "GitHub",
+    "githubNewTab": " (opens in a new tab)",
+    "contact": "Contact",
+    "backToTop": "Back to top"
+  }
+}

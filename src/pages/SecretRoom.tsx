@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "./SecretRoom.css";
 
 export default function SecretRoom() {
+  const { t } = useTranslation();
   const [revealed, setRevealed] = useState(false);
   const [scared, setScared] = useState(false);
   const alarmRef = useRef<HTMLAudioElement>(null);
@@ -95,7 +97,7 @@ export default function SecretRoom() {
         className="relative z-10 text-3xl transition-opacity duration-1000"
         style={{ opacity: revealed ? 0 : 1 }}
       >
-        Non dovevi trovarla.
+        {t("secretRoom.hint")}
       </h1>
 
       <audio ref={alarmRef} src="/sounds/alarm.flac" />

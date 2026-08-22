@@ -1,9 +1,47 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { navItems } from "../data/navItems";
 import SecretNavLink from "./SecretNavLink";
 import "./Header.css";
 
+const NAV_LABEL_KEYS: Record<string, string> = {
+  "#home": "header.nav.home",
+  "#archivio": "header.nav.archivio",
+  "/enigmi": "header.nav.enigmi",
+};
+
+function LanguageSwitch() {
+  const { i18n } = useTranslation();
+  const current = i18n.resolvedLanguage ?? i18n.language;
+
+  return (
+    <div
+      className="flex items-center gap-1.5 text-xs font-medium uppercase"
+      style={{ letterSpacing: "0.2em" }}
+    >
+      <button
+        type="button"
+        onClick={() => i18n.changeLanguage("it")}
+        style={{ color: "#e7e2d3", opacity: current.startsWith("it") ? 1 : 0.4 }}
+      >
+        IT
+      </button>
+      <span aria-hidden="true" style={{ color: "#2b2f2c" }}>
+        |
+      </span>
+      <button
+        type="button"
+        onClick={() => i18n.changeLanguage("en")}
+        style={{ color: "#e7e2d3", opacity: current.startsWith("en") ? 1 : 0.4 }}
+      >
+        EN
+      </button>
+    </div>
+  );
+}
+
 export default function Header() {
+  const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -83,10 +121,11 @@ export default function Header() {
                 className="text-xs font-medium uppercase"
                 style={{ color: "#e7e2d3", letterSpacing: "0.2em" }}
               >
-                {item.label}
+                {t(NAV_LABEL_KEYS[item.href] ?? item.label)}
               </a>
             )
           )}
+          <LanguageSwitch />
         </nav>
 
         <button
@@ -106,7 +145,7 @@ export default function Header() {
         id="mobile-nav"
         aria-hidden={!menuOpen}
         className="overflow-hidden transition-all duration-300 md:hidden"
-        style={{ maxHeight: menuOpen ? "220px" : "0px" }}
+        style={{ maxHeight: menuOpen ? "260px" : "0px" }}
       >
         <nav aria-label="Menu mobile" className="flex flex-col items-end gap-4 px-6 pb-6">
           {navItems.map((item) =>
@@ -133,10 +172,11 @@ export default function Header() {
                 className="text-xs font-medium uppercase"
                 style={{ color: "#e7e2d3", letterSpacing: "0.2em" }}
               >
-                {item.label}
+                {t(NAV_LABEL_KEYS[item.href] ?? item.label)}
               </a>
             )
           )}
+          <LanguageSwitch />
         </nav>
       </div>
     </header>

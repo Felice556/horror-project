@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import Section from "./Section";
 import SectionTitle from "./SectionTitle";
 import ArchiveCard from "./archiveCard";
 import { archiveItems } from "../data/archiveItems";
 
 export default function Archivio() {
+  const { t } = useTranslation();
   const [isUnlocked, setIsUnlocked] = useState(false);
-  const [code, setCode] = useState(""); 
+  const [code, setCode] = useState("");
 
   useEffect(() => {
     let typed = "";
@@ -37,12 +39,17 @@ export default function Archivio() {
   return (
     <Section id="archivio" backgroundImage="/images/archivio-bg.jpg" fadeTop>
       <div style={{ paddingTop: "5px" }}>
-        <SectionTitle variant="film" >Archivio</SectionTitle>
+        <SectionTitle variant="film" >{t("archivio.title")}</SectionTitle>
 
         {isUnlocked ? (
           <div className="grid w-full max-w-5xl py-8 gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {archiveItems.map((item) => (
-              <ArchiveCard key={item.title} {...item} />
+              <ArchiveCard
+                key={item.title}
+                title={t(item.title)}
+                reference={item.reference}
+                description={t(item.description)}
+              />
             ))}
           </div>
         ) : (
@@ -55,10 +62,10 @@ export default function Archivio() {
               letterSpacing: "0.05em",
             }}
           >
-            Alcuni ricordi sono stati murati vivi. Da qualche parte, una stanza ricorda ancora la via per farli riemergere...
+            {t("archivio.locked")}
           </p>
               <label htmlFor="archive-code" className="sr-only">
-              Codice segreto per sbloccare l'archivio
+              {t("archivio.codeLabel")}
             </label>
               <input
               id="archive-code"
@@ -66,7 +73,7 @@ export default function Archivio() {
               inputMode="numeric"
               value={code}
               onChange={handleCodeChange}
-              placeholder="SBLOCCA"
+              placeholder={t("archivio.codePlaceholder")}
               maxLength={4}
               className="w-24 border bg-transparent px-3 py-2 text-center text-sm xl:hidden"
               style={{ borderColor: "#2b2f2c", color: "#e7e2d3" }}
