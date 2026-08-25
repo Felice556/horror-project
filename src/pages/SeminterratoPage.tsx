@@ -39,7 +39,7 @@ export default function SeminterratoPage() {
   return (
     <main
       onPointerMove={revealed ? handlePointerMove : undefined}
-      className="relative min-h-dvh overflow-hidden"
+      className="relative min-h-screen overflow-hidden"
       style={{
         backgroundColor: "#0a0e0d",
         touchAction: revealed ? "none" : undefined,
@@ -75,7 +75,7 @@ export default function SeminterratoPage() {
       />
 
       {!revealed && (
-        <div className="flex min-h-dvh items-center justify-center">
+        <div className="flex min-h-screen items-center justify-center">
           <p className="text-xs uppercase" style={{ color: "#e7e2d3", letterSpacing: "0.1em" }}>
             {t("seminterrato.cold")}
           </p>
