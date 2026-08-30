@@ -1,6 +1,6 @@
 # Stanza 237
 
-An interactive horror website built to put React and TypeScript into practice on a complete project. Packed with references and easter eggs to horror cinema classics — nothing is what it seems, and not everything is visible at first glance.
+An interactive horror website built to put React and TypeScript into practice on a complete project. Packed with references and easter eggs to horror cinema classics, nothing is what it seems, and not everything is visible at first glance.
 
 ## 🎥 Live demo
 
